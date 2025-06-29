@@ -32,8 +32,22 @@ export default function RootLayout({ children }) {
               <li>
                 <Link href="/" className="hover:text-black">Home</Link>
               </li>
-              <li>
-                <Link href="/chapter" className="hover:text-black">Chapter 1</Link>
+              <li className="relative group">
+                <span className="hover:text-black cursor-pointer">Chapter 1 ▾</span>
+                <ul className="absolute left-0 mt-2 w-40 bg-white border shadow-md rounded invisible opacity-0 group-hover:visible group-hover:opacity-100 flex flex-col z-50 transition-all duration-150">
+                  <li>
+                    <Link href="/chapter/1.1" className="block px-4 py-2 hover:bg-gray-100">1.1 Getting Started</Link>
+                  </li>
+                  <li>
+                    <Link href="/chapter/1.2" className="block px-4 py-2 hover:bg-gray-100">1.2 Variables & Arithmetic</Link>
+                  </li>
+                  <li>
+                    <Link href="/chapter/1.3" className="block px-4 py-2 hover:bg-gray-100">1.3 For Statement</Link>
+                  </li>
+                  <li>
+                    <Link href="/chapter" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-500">See All...</Link>
+                  </li>
+                </ul>
               </li>
               <li>
                 <Link href="https://github.com/EsmaeilSaleh/kr_reader" target="_blank" rel="noopener noreferrer" className="hover:text-black">
