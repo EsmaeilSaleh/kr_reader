@@ -39,6 +39,100 @@ int main(void)
     printf("hello, world\\n");
     return 0;
 }`
+        },
+        {
+            id: "1.2",
+            title: "Variables and Arithmetic Expressions",
+            summary: `
+🔢 **Working with Numbers**
+
+This section introduces variables and arithmetic expressions in C. You'll learn how to store data and perform calculations using operators like \`+\`, \`-\`, \`*\`, and \`/\`.
+
+C requires variables to be declared before use, and their type (like \`int\`) determines what kind of data they can store. Arithmetic expressions follow familiar math rules, but be mindful of integer division and operator precedence.
+
+\`\`\`c
+#include <stdio.h>
+
+int main(void)
+{
+    int a, b, sum;
+
+    a = 5;
+    b = 3;
+    sum = a + b;
+
+    printf("Sum: %d\\n", sum);
+    return 0;
+}
+\`\`\`
+
+🧠 **Key concepts:**
+
+- \`int\` declares integer variables
+- \`=\` assigns a value
+- \`+\`, \`-\`, \`*\`, \`/\` perform arithmetic
+- \`%d\` is used in \`printf\` to format integers
+
+Try changing the values and operations to see how the output changes!
+`,
+            code: `#include <stdio.h>
+
+int main(void)
+{
+    int a, b, sum;
+
+    a = 5;
+    b = 3;
+    sum = a + b;
+
+    printf("Sum: %d\\n", sum);
+    return 0;
+}`
+        },
+        {
+            id: "1.3",
+            title: "The For Statement",
+            summary: `
+🔁 **Looping with \`for\`**
+
+This section introduces the \`for\` loop — a powerful way to repeat actions in C.
+
+A \`for\` loop is typically used when you know in advance how many times you want to repeat something. It has three parts: initialization, condition, and increment.
+
+\`\`\`c
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+
+    for (i = 0; i < 10; i++)
+        printf("%d\\n", i);
+
+    return 0;
+}
+\`\`\`
+
+🧠 **Key concepts:**
+
+- \`for (init; condition; update)\` is the structure
+- \`i = 0;\` starts the loop
+- \`i < 10;\` keeps it going
+- \`i++;\` increases \`i\` after each loop
+
+This prints numbers 0 through 9. Try changing the range or adding more actions inside the loop!
+`,
+            code: `#include <stdio.h>
+
+int main(void)
+{
+    int i;
+
+    for (i = 0; i < 10; i++)
+        printf("%d\\n", i);
+
+    return 0;
+}`
         }
     ]
 };

@@ -1,11 +1,14 @@
 'use client';
 
+import { useParams } from 'next/navigation';
 import chapter1 from '@/data/chapter1';
 import SubchapterLayout from '@/components/SubchapterLayout';
 
 export default function ChapterPage() {
-    // For now, we only load Chapter 1, Section 1 (hardcoded)
-    const section = chapter1.sections[0];
+    const { id } = useParams();
+    const section = chapter1.sections.find((sec) => sec.id === id);
+
+    if (!section) return <div>Section not found.</div>;
 
     return (
         <SubchapterLayout
