@@ -7,14 +7,7 @@ const chapter1 = {
             summary: `
 👋 **Welcome!** This section introduces the structure of a basic C program using the classic \`Hello, World\` example.
 
-A C program is made up of functions. The main one is called  
-\`main()\`,  
-
-and it's where your program starts running.
-
-The function \`printf()\` is used to print text to the screen.
-
-It comes from the standard library \`<stdio.h>\`, which we include at the top with \`#include <stdio.h>\`.
+A C program is made up of functions. The main one is called \`main()\`, and it's where your program starts running. The function \`printf()\` is used to print text to the screen. It comes from the standard library \`<stdio.h>\`, which we include at the top with \`#include <stdio.h>\`.
 
 ---
 

@@ -9,14 +9,16 @@ export default function SubchapterLayout({ title, summary, code }) {
             <ReactMarkdown
                 components={{
                     p: ({ node, ...props }) => <p className="mb-4" {...props} />,
-                    code: ({ node, inline, className, children, ...props }) =>
-                        inline ? (
+                    code: ({ className, children, ...props }) => {
+                        const isInline = !className;
+                        return isInline ? (
                             <code className="bg-gray-200 text-red-700 px-1 rounded" {...props}>{children}</code>
                         ) : (
                             <pre className="bg-gray-900 text-white p-4 rounded text-sm overflow-auto">
-                                <code {...props}>{children}</code>
+                                <code className={className} {...props}>{children}</code>
                             </pre>
-                        ),
+                        );
+                    },
                     li: ({ node, ...props }) => <li className="mb-1 list-disc ml-6" {...props} />,
                 }}
             >
