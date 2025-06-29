@@ -133,6 +133,84 @@ int main(void)
 
     return 0;
 }`
+        },
+        {
+            id: "1.4",
+            title: "Symbolic Constants",
+            summary: `
+🔤 **Using Constants for Readability**
+
+This section introduces symbolic constants in C using the \`#define\` directive. Symbolic constants make your code more readable and easier to maintain by giving meaningful names to fixed values.
+
+\`\`\`c
+#include <stdio.h>
+
+#define PI 3.14159
+
+int main(void)
+{
+    printf("The value of PI is %f\\n", PI);
+    return 0;
+}
+\`\`\`
+
+🧠 **Key concepts:**
+
+- \`#define\` is a preprocessor directive that creates symbolic constants.
+- \`PI\` is replaced by \`3.14159\` before the code is compiled.
+- Using symbolic names makes code clearer and simplifies future updates.
+
+Try defining other constants like MAX, MIN, or even messages!
+`,
+            code: `#include <stdio.h>
+
+#define PI 3.14159
+
+int main(void)
+{
+    printf("The value of PI is %f\\n", PI);
+    return 0;
+}`
+        },
+        {
+            id: "1.5",
+            title: "Character Input and Output",
+            summary: `
+⌨️ **Reading and Writing Characters**
+
+This section introduces the basic building blocks of user input and output: reading and writing single characters using \`getchar()\` and \`putchar()\`.
+
+\`\`\`c
+#include <stdio.h>
+
+int main(void)
+{
+    int c;
+
+    c = getchar();   // Read a character
+    putchar(c);      // Write it back
+    return 0;
+}
+\`\`\`
+
+🧠 **Key concepts:**
+
+- \`getchar()\` reads a single character from standard input
+- \`putchar(c)\` writes the character back to standard output
+- This code echoes the typed character
+
+You can build on this by using loops to handle full lines or more characters.
+`,
+            code: `#include <stdio.h>
+
+int main(void)
+{
+    int c;
+
+    c = getchar();
+    putchar(c);
+    return 0;
+}`
         }
     ]
 };
