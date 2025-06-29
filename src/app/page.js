@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white p-8 flex flex-col items-center justify-center">
@@ -5,12 +7,12 @@ export default function Home() {
       <p className="text-lg mb-4 max-w-xl text-center">
         A visual companion and interactive guide to the classic K&amp;R book. Read, type, and explore the books content section by section.
       </p>
-      <a
+      <Link
         href="/chapter/1.1"
         className="mt-6 px-6 py-3 rounded bg-blue-600 hover:bg-blue-500 transition text-white font-semibold"
       >
         Start with Chapter 1 →
-      </a>
+      </Link>
     </div>
   );
 }

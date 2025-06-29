@@ -12,7 +12,7 @@ export default function SubchapterLayout({ title, summary, code }) {
                     code: ({ className, children, ...props }) => {
                         const isInline = !className;
                         return isInline ? (
-                            <code className="bg-gray-200 text-red-700 px-1 rounded" {...props}>{children}</code>
+                            <code className="bg-gray-800 px-1 rounded" {...props}>{children}</code>
                         ) : (
                             <pre className="bg-gray-900 text-white p-4 rounded text-sm overflow-auto">
                                 <code className={className} {...props}>{children}</code>

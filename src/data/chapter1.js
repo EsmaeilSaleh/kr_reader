@@ -24,13 +24,13 @@ int main(void)
 
 🧠 **Let’s break it down:**
 
--  📘 \`#include <stdio.h>\` → gives access to \`printf()\`
--  🎯 \`main(void)\` → your program’s entry point
--  🖨️ \`printf(...)\` → prints text
--  ↩️ \`\\n\` → moves to the next line
--  ✅ \`return 0;\` → tells the system everything went well
+-  \`#include <stdio.h>\` → gives access to \`printf()\`
+-  \`main(void)\` → your program’s entry point
+-  \`printf(...)\` → prints text
+-  \`\\n\` → moves to the next line
+-  \`return 0;\` → tells the system everything went well
 
-✅ You've just written your first valid C program!
+You've just written your first valid C program!
 `,
             code: `#include <stdio.h>
 
