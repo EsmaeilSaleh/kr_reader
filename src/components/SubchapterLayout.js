@@ -1,6 +1,5 @@
-
-
 import React from 'react';
+import TypingPractice from './TypingPractice';
 
 export default function SubchapterLayout({ title, summary, code }) {
     return (
@@ -13,6 +12,7 @@ export default function SubchapterLayout({ title, summary, code }) {
             <pre className="bg-gray-900 text-white p-4 rounded text-sm overflow-auto">
                 <code>{code}</code>
             </pre>
+            <TypingPractice target={code} />
         </div>
     );
 }
