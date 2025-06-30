@@ -37,6 +37,25 @@ export default function ChapterPage() {
 
     if (!chapter) return <div>Chapter not found.</div>;
     const section = chapter?.sections?.find((s) => s.id === id);
+    if (id.indexOf('.') === -1) {
+        return (
+            <div className="p-6 max-w-2xl mx-auto">
+                <h1 className="text-3xl font-bold mb-4">{chapter.title}</h1>
+                <ul className="space-y-2">
+                    {chapter.sections.map((s) => (
+                        <li key={s.id}>
+                            <a
+                                href={`/chapter/${s.id}`}
+                                className="text-blue-600 hover:underline"
+                            >
+                                {s.id} — {s.title}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
     if (!section) return <div>Section not found.</div>;
 
     return (
