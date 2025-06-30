@@ -3,81 +3,75 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 export default function NavMenu() {
     const pathname = usePathname();
+    const chapterNumber = pathname?.split('/')[2]?.split('.')[0];
+
+    const detailsRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (detailsRef.current && !detailsRef.current.contains(event.target)) {
+                detailsRef.current.removeAttribute('open');
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <li className="relative">
-            <details className="group">
+            <details className="group" ref={detailsRef}>
                 <summary className="list-none cursor-pointer hover:text-black">Chapters ▾</summary>
                 <ul
                     className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-40 bg-white border shadow-md rounded flex flex-col z-50 transition-all duration-150"
                     onClick={(e) => e.target.closest('details')?.removeAttribute('open')}
                 >
-                    <li>
-                        <Link
-                            href="/chapter/1"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/1' ? 'text-blue-400' : ''}`}
-                        >
+                    <Link href="/chapter/1">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '1' ? 'text-blue-400' : ''}`}>
                             Chapter 1
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/2"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/2' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/2">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '2' ? 'text-blue-400' : ''}`}>
                             Chapter 2
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/3"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/3' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/3">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '3' ? 'text-blue-400' : ''}`}>
                             Chapter 3
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/4"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/4' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/4">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '4' ? 'text-blue-400' : ''}`}>
                             Chapter 4
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/5"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/5' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/5">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '5' ? 'text-blue-400' : ''}`}>
                             Chapter 5
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/6"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/6' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/6">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '6' ? 'text-blue-400' : ''}`}>
                             Chapter 6
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/7"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/7' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/7">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '7' ? 'text-blue-400' : ''}`}>
                             Chapter 7
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/chapter/8"
-                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/8' ? 'text-blue-400' : ''}`}
-                        >
+                        </li>
+                    </Link>
+                    <Link href="/chapter/8">
+                        <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '8' ? 'text-blue-400' : ''}`}>
                             Chapter 8
-                        </Link>
-                    </li>
+                        </li>
+                    </Link>
                 </ul>
             </details>
         </li>

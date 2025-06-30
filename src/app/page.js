@@ -4,8 +4,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white p-8 flex flex-col items-center justify-center">
       <h1 className="text-3xl font-bold mb-6">📘 The C Programming Language (K&amp;R)</h1>
+      <blockquote className="italic text-blue-300 text-center max-w-2xl mb-6">
+        C is not just a language, its a gateway to understanding the soul of computers.
+      </blockquote>
       <p className="text-lg mb-4 max-w-xl text-center">
-        A visual companion and interactive guide to the classic K&amp;R book. Read, type, and explore the books content section by section.
+        Dive into the timeless classic with a modern twist. Read, type, and explore each section of K&amp;R with interactive clarity.
       </p>
       <Link
         href="/chapter/1.1"
