@@ -3,17 +3,18 @@
 A visual, browser-based companion to the classic book **The C Programming Language** by Kernighan and Ritchie.  
 This project lets you **read chapter summaries**, explore **code examples**, and **practice typing** each program — all in a structured and fun format.
 
-🌐 **Live App**: [kr-reader-fawn.vercel.app](https://kr-reader-fawn.vercel.app)
+🌐 **Live App**: [kr-reader-fawn.vercel.app](https://kr-reader-fawn.vercel.app) — best experienced on mobile!
 
 ---
 
 ## ✍️ Features
 
-- 📚 Chapter-by-chapter breakdown of the K&R book
-- 💡 Clear explanations and visual summaries
-- ⌨️ Typing practice for each code snippet (with tab and formatting support)
-- ✅ Follows 42 Norminette rules
-- 🎯 Perfect for students at 42 and C beginners alike
+- 📚 Full chapter-by-chapter summaries of the K&R C book
+- 💡 Easy-to-read explanations with working code samples
+- ⌨️ Typing practice with swiping navigation on mobile
+- 📱 Mobile-first design with swipe gestures for seamless chapter navigation
+- ✅ Norminette-compatible code layout (for 42 students)
+- 🔍 Explore each chapter and its subtopics interactively
 
 ---
 
@@ -26,11 +27,11 @@ You can also try the CLI version:
 
 ## 💡 Roadmap Ideas
 
-- 🔢 WPM and typing stats
-- 📈 Progress tracking and checkpoints
-- 🌍 Chapter navigation
-- 🌙 Dark mode
-- 📝 Add exercises from the book
+- 📝 Add more exercises from the book
+- 📈 Track user progress and typing stats
+- 🌙 Optional dark mode
+- 🧠 Add interactive quizzes per chapter
+- 🧩 Bookmark favorite sections
 
 ---
 
