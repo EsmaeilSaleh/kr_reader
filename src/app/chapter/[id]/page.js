@@ -36,6 +36,9 @@ export default function ChapterPage() {
 
     const [isMobile, setIsMobile] = useState(false);
     const [showHint, setShowHint] = useState(false);
+    // Add swipeDirection state
+    const [swipeDirection, setSwipeDirection] = useState(null);
+
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth <= 768);
         checkMobile();
@@ -58,9 +61,25 @@ export default function ChapterPage() {
         }
     };
 
+    // Enhanced handlers with swipeDirection feedback
     const handlers = useSwipeable({
-        onSwipedLeft: () => goToSection(currentIndex + 1),
-        onSwipedRight: () => goToSection(currentIndex - 1),
+        onSwipedLeft: () => {
+            setSwipeDirection('left');
+            goToSection(currentIndex + 1);
+        },
+        onSwipedRight: () => {
+            setSwipeDirection('right');
+            goToSection(currentIndex - 1);
+        },
+        onSwipeStart: (eventData) => {
+            if (eventData.dir === 'Left') setSwipeDirection('left');
+            else if (eventData.dir === 'Right') setSwipeDirection('right');
+        },
+        onSwiped: (eventData) => {
+            setSwipeDirection(null);
+            if (eventData.dir === 'Left') goToSection(currentIndex + 1);
+            else if (eventData.dir === 'Right') goToSection(currentIndex - 1);
+        },
         preventDefaultTouchmoveEvent: true,
         trackTouch: true
     });
@@ -95,17 +114,20 @@ export default function ChapterPage() {
                     👉 Tip: You can swipe left/right to move between sections!
                 </div>
             )}
+            {swipeDirection && (
+                <div className={`fixed top-1/2 transform -translate-y-1/2 ${swipeDirection === 'left' ? 'right-4' : 'left-4'} z-50`}>
+                    <div className="text-white text-lg p-2 rounded-full shadow-md animate-pulse">
+                        {swipeDirection === 'left' ? '➡️' : '⬅️'}
+                    </div>
+                </div>
+            )}
             <SubchapterLayout
                 key={section.id}
                 title={`${chapter.title} — ${section.title}`}
                 summary={section.summary}
                 code={section.code}
             />
-            {isMobile && (
-                <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded shadow-md opacity-80 pointer-events-none animate-pulse">
-                    👉 Swipe left/right to navigate
-                </div>
-            )}
+
         </div>
     );
 }
