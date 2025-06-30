@@ -56,6 +56,16 @@ export default function ChapterPage() {
         if (index >= 0 && index < allSections.length) {
             const nextId = allSections[index].id;
             router.push(`/chapter/${nextId}`);
+        } else if (index < 0) {
+            const prevChapterNum = parseInt(chapterKey.replace('chapter', '')) - 1;
+            if (chapters[`chapter${prevChapterNum}`]) {
+                router.push(`/chapter/${prevChapterNum}`);
+            }
+        } else if (index >= allSections.length) {
+            const nextChapterNum = parseInt(chapterKey.replace('chapter', '')) + 1;
+            if (chapters[`chapter${nextChapterNum}`]) {
+                router.push(`/chapter/${nextChapterNum}`);
+            }
         }
     };
 
