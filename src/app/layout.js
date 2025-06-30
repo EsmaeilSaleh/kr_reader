@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Image from 'next/image';
 import "./globals.css";
 import NavMenu from '@/components/NavMenu';
 
@@ -29,8 +30,15 @@ export default function RootLayout({ children }) {
       >
         <header className="bg-white border-b shadow-sm px-6 py-3 sticky top-0 z-50">
           <nav className="max-w-5xl mx-auto flex items-center justify-between">
-            <Link href="/" className="text-lg font-semibold text-gray-800 hover:text-black">
-              K&R Reader
+            <Link href="/" className="flex items-center space-x-2 hover:text-black">
+              <Image
+                src="/icon.png"
+                alt="K&R Reader logo"
+                width={34}
+                height={34}
+                className="bg-gray-700 rounded"
+              />
+              <span className="text-lg font-semibold text-gray-800">K&R Reader</span>
             </Link>
             <ul className="flex gap-6 text-sm text-gray-600">
               <li>
