@@ -7,10 +7,10 @@ export default function TypingPractice({ target }) {
         if (e.key === 'Tab') {
             e.preventDefault();
             const { selectionStart, selectionEnd } = e.target;
-            const newValue = input.slice(0, selectionStart) + '\t' + input.slice(selectionEnd);
+            const newValue = input.slice(0, selectionStart) + '    ' + input.slice(selectionEnd);
             setInput(newValue);
             setTimeout(() => {
-                e.target.selectionStart = e.target.selectionEnd = selectionStart + 1;
+                e.target.selectionStart = e.target.selectionEnd = selectionStart + 4;
             }, 0);
         }
     };
