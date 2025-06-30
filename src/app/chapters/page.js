@@ -19,7 +19,7 @@ export default function ChapterIndex() {
             {Object.entries(chapters).map(([key, chapter]) => (
                 <div key={key} className="mb-6">
                     <Link href={`/chapters/${key.replace("chapter", "")}`}>
-                        <h2 className="text-2xl font-semibold mb-2 text-blue-700 hover:underline">{chapter.title}</h2>
+                        <h2 className="text-2xl font-semibold mb-2 text-purple-700 hover:underline">{chapter.title}</h2>
                     </Link>
                     <ul className="space-y-1">
                         {chapter.sections.map((section) => (
