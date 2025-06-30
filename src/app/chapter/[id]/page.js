@@ -12,6 +12,7 @@ import chapter8 from '@/data/chapter8';
 import SubchapterLayout from '@/components/SubchapterLayout';
 import { useSwipeable } from 'react-swipeable';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const chapters = {
     chapter1,
@@ -32,6 +33,23 @@ export default function ChapterPage() {
     const router = useRouter();
     const allSections = chapter?.sections || [];
     const currentIndex = allSections.findIndex((s) => s.id === id);
+
+    const [isMobile, setIsMobile] = useState(false);
+    const [showHint, setShowHint] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+    useEffect(() => {
+        const seen = localStorage.getItem('swipeHintShown');
+        if (!seen && id.includes('.')) {
+            setShowHint(true);
+            setTimeout(() => setShowHint(false), 5000);
+            localStorage.setItem('swipeHintShown', 'true');
+        }
+    }, [id]);
 
     const goToSection = (index) => {
         if (index >= 0 && index < allSections.length) {
@@ -72,12 +90,22 @@ export default function ChapterPage() {
 
     return (
         <div {...handlers}>
+            {isMobile && showHint && (
+                <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs px-3 py-2 rounded shadow-md z-50">
+                    👉 Tip: You can swipe left/right to move between sections!
+                </div>
+            )}
             <SubchapterLayout
                 key={section.id}
                 title={`${chapter.title} — ${section.title}`}
                 summary={section.summary}
                 code={section.code}
             />
+            {isMobile && (
+                <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded shadow-md opacity-80 pointer-events-none animate-pulse">
+                    👉 Swipe left/right to navigate
+                </div>
+            )}
         </div>
     );
 }
