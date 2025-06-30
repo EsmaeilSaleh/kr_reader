@@ -12,9 +12,9 @@ export default function SubchapterLayout({ title, summary, code }) {
                     code: ({ className, children, ...props }) => {
                         const isInline = !className;
                         return isInline ? (
-                            <code className="dark:bg-gray-800 px-1 rounded" {...props}>{children}</code>
+                            <code className="dark:bg-gray-600 px-1 rounded" {...props}>{children}</code>
                         ) : (
-                            <pre className="bg-gray-900 text-white p-4 rounded text-sm overflow-auto">
+                            <pre className="bg-gray-600 text-white p-4 rounded text-sm overflow-auto">
                                 <code className={className} {...props}>{children}</code>
                             </pre>
                         );
@@ -25,7 +25,7 @@ export default function SubchapterLayout({ title, summary, code }) {
                 {summary}
             </ReactMarkdown>
             <h2 className="text-xl font-semibold mt-8 mb-2">Code Practice</h2>
-            <pre className="bg-gray-900 text-white p-4 rounded text-sm overflow-auto">
+            <pre className="bg-gray-600 text-white p-4 rounded text-sm overflow-auto">
                 <code>{code}</code>
             </pre>
             <TypingPractice target={code} />
