@@ -55,13 +55,47 @@ int main(void)
             id: "8.2",
             title: "8.2 Low Level I/O - Read and Write",
             summary: `
-🔍 **Read and Write**
+📥 **Low-Level I/O: Read and Write**
 
-Details how to use the \`read()\` and \`write()\` system calls and emphasizes the importance of error handling.
+UNIX provides two core system calls to handle low-level input and output: \`read()\` and \`write()\`. These are used when working directly with file descriptors (e.g., \`0\`, \`1\`, \`2\`, or any returned from \`open()\`).
 
-🧠 **Key Concepts:**
-- \`read()\` and \`write()\` return bytes or -1 on error
-- Use \`perror()\` and check return values
+🧠 **Basic Usage**
+- \`read(int fd, void *buf, size_t count)\` reads up to \`count\` bytes into \`buf\` from the file described by \`fd\`.
+- \`write(int fd, const void *buf, size_t count)\` writes up to \`count\` bytes from \`buf\` to the file.
+
+🔄 Both functions return:
+- Number of bytes read or written
+- \`0\` for end of file (read)
+- \`-1\` on error (always check this!)
+
+💡 **Standard Practice**
+- Always check the return values of \`read\` and \`write\`.
+- Use \`perror()\` or \`strerror(errno)\` to debug errors.
+
+📌 **Buffering Tips**
+- It's common to use a buffer size like \`1024\` or \`4096\` for performance.
+- If \`read()\` returns fewer bytes than requested, loop until you're done.
+
+📦 **Example Workflow**
+You can implement file copying like this:
+\`\`\`c
+#include <fcntl.h>
+#include <unistd.h>
+
+char buf[1024];
+int in = open("in.txt", O_RDONLY);
+int out = open("out.txt", O_WRONLY | O_CREAT, 0644);
+int n;
+while ((n = read(in, buf, 1024)) > 0)
+    write(out, buf, n);
+close(in);
+close(out);
+\`\`\`
+
+🔁 **Advanced: getchar() with read**
+Buffered versions of \`getchar()\` can be built using \`read()\` under the hood.
+
+This approach gives you full control over performance and I/O behavior.
 `,
             code: `#include <stdio.h>
 #include <fcntl.h>
