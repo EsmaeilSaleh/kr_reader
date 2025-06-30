@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useParams } from 'next/navigation';
 import chapter1 from '@/data/chapter1';
+import chapter7 from '@/data/chapter7';
 import chapter8 from '@/data/chapter8';
 import SubchapterLayout from '@/components/SubchapterLayout';
 import { useSwipeable } from 'react-swipeable';
@@ -9,6 +10,7 @@ import { useRouter } from 'next/navigation';
 
 const chapters = {
     chapter1,
+    chapter7,
     chapter8
 }
 

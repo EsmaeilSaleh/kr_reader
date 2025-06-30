@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import chapter1 from "@/data/chapter1";
+import chapter7 from "@/data/chapter7";
 import chapter8 from "@/data/chapter8";
 
-const chapters = { chapter1, chapter8 };
+const chapters = { chapter1, chapter7, chapter8 };
 
 export default function ChapterIndex() {
     return (
