@@ -2,6 +2,10 @@
 import Link from "next/link";
 import { useParams } from 'next/navigation';
 import chapter1 from '@/data/chapter1';
+import chapter2 from '@/data/chapter2';
+import chapter3 from '@/data/chapter3';
+import chapter4 from '@/data/chapter4';
+import chapter5 from '@/data/chapter5';
 import chapter7 from '@/data/chapter7';
 import chapter8 from '@/data/chapter8';
 import SubchapterLayout from '@/components/SubchapterLayout';
@@ -10,6 +14,10 @@ import { useRouter } from 'next/navigation';
 
 const chapters = {
     chapter1,
+    chapter2,
+    chapter3,
+    chapter4,
+    chapter5,
     chapter7,
     chapter8
 }
