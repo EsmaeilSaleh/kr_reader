@@ -16,6 +16,9 @@ export default function Home() {
       >
         Start with Chapter 1 →
       </Link>
+      <p className="text-sm text-gray-500 mt-6">
+        💡 On mobile, swipe left/right to navigate between sections.
+      </p>
     </div>
   );
 }
