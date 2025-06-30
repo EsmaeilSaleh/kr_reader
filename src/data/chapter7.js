@@ -71,6 +71,63 @@ int main() {
         },
         {
             id: '7.3',
+            title: 'Variable-length Argument Lists',
+            summary: `
+🧵 **7.3 Variable-length Argument Lists**
+
+Sometimes you want a function to accept any number of arguments, like \`printf\`.
+
+C provides a way to handle this using macros in \`<stdarg.h>\`.
+
+🔹 **Key Macros**
+- \`va_list\` – type to hold the information needed
+- \`va_start\` – initializes the list
+- \`va_arg\` – retrieves the next argument
+- \`va_end\` – cleans up
+
+🔧 **Example**
+\`\`\`c
+#include <stdarg.h>
+
+int sum(int count, ...) {
+    va_list ap;
+    int i, total = 0;
+
+    va_start(ap, count);
+    for (i = 0; i < count; i++)
+        total += va_arg(ap, int);
+    va_end(ap);
+
+    return total;
+}
+\`\`\`
+
+💡 This function takes any number of integer arguments and returns their sum.
+
+🛠️ Use this only when necessary. Typed arguments are safer and more predictable.
+`,
+            code: `#include <stdio.h>
+#include <stdarg.h>
+
+int sum(int count, ...) {
+    va_list ap;
+    int i, total = 0;
+
+    va_start(ap, count);
+    for (i = 0; i < count; i++)
+        total += va_arg(ap, int);
+    va_end(ap);
+
+    return total;
+}
+
+int main() {
+    printf("Sum: %d\\n", sum(4, 10, 20, 30, 40));
+    return 0;
+}`
+        },
+        {
+            id: '7.4',
             title: 'Formatted Input — scanf',
             summary: `
 📥 **Formatted Input with scanf**
@@ -108,7 +165,7 @@ int main() {
 }`
         },
         {
-            id: '7.4',
+            id: '7.5',
             title: 'File Access',
             summary: `
 📂 **Working with Files**
@@ -149,7 +206,7 @@ int main() {
 }`
         },
         {
-            id: '7.5',
+            id: '7.6',
             title: 'Error Handling — stderr and Exit',
             summary: `
 🚨 **Handling Errors**
@@ -186,7 +243,7 @@ int main() {
 }`
         },
         {
-            id: '7.6',
+            id: '7.7',
             title: 'Line Input and Output',
             summary: `
 📥 **Reading and Writing Lines**
@@ -215,50 +272,6 @@ int main() {
         fputs(buf, stdout);
     }
 
-    return 0;
-}`
-        },
-        {
-            id: '7.7',
-            title: 'Miscellaneous Functions',
-            summary: `
-🧪 **Lesser-Known Functions**
-
-Explore advanced I/O features:
-
-- \`ungetc(c, fp)\` – push a character back into input stream
-- \`fflush(fp)\` – flush output buffer (useful before reading input)
-- \`tmpfile()\` – create a temporary file
-- \`setbuf()\`, \`setvbuf()\` – customize buffering behavior
-
-📌 These are useful in special I/O situations.
-`,
-            code: `#include <stdio.h>
-
-int main() {
-    FILE *fp;
-    int c;
-
-    // Using tmpfile
-    fp = tmpfile();
-    if (fp == NULL) {
-        perror("tmpfile");
-        return 1;
-    }
-
-    fputs("Hello, temporary file!\n", fp);
-    rewind(fp);  // Go back to beginning of file
-
-    // Using ungetc
-    while ((c = getc(fp)) != EOF) {
-        if (c == 'H') {
-            ungetc('*', fp);  // Push back a char
-            c = getc(fp);     // Read it again
-        }
-        putchar(c);
-    }
-
-    fclose(fp);
     return 0;
 }`
         },
