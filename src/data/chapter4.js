@@ -1,6 +1,19 @@
 
 
 const chapter4 = {
+    intro: `
+  🚀 **Chapter 4: Functions and Program Structure**
+
+  In this chapter, you'll explore one of C’s most powerful features—functions. Functions let you organize code into logical blocks, making programs easier to read, write, and maintain.
+
+  🧩 **What you’ll learn:**
+  - How to define and call functions
+  - The difference between local and global variables
+  - How data is passed to functions
+  - Best practices for modular and clean code
+
+  🛠️ Whether it's breaking large problems into smaller tasks or managing state with global variables, functions are the heart of structured programming in C.
+  `,
     title: "Chapter 4 – Functions and Program Structure",
     sections: [
         {

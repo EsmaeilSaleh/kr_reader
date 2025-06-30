@@ -1,6 +1,24 @@
 
 
 const chapter3 = {
+    intro: `
+🔍 **What You’ll Learn in Chapter 3: Control Flow**
+
+This chapter teaches how a program decides *what to do next*. It's all about making decisions, repeating actions, and jumping around your code.
+
+🚦 **Decisions with \`if\`, \`else\`, and \`switch\`**
+- Choose different actions based on conditions.
+- Group multiple actions using \`{}\` blocks.
+
+🔁 **Loops: Doing Things Repeatedly**
+- Use \`while\`, \`do-while\`, and \`for\` loops to repeat code.
+- Learn how to skip parts or exit early with \`break\` and \`continue\`.
+
+⚠️ **\`goto\`: Use with Caution**
+- Jump anywhere in your code—but it can get messy.
+
+By the end of this chapter, you'll write code that reacts, repeats, and makes decisions just like a real program should.
+`,
     title: "Control Flow",
     sections: [
         {

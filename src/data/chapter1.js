@@ -1,5 +1,21 @@
 const chapter1 = {
     title: "Chapter 1: A Tutorial Introduction",
+    intro: `
+🚀 **Chapter 1: A Tutorial Introduction**
+
+Welcome to your C programming journey! This chapter is all about helping you get your hands dirty with real code. You’ll start writing and running simple programs from the very beginning.
+
+👨‍💻 **What You’ll Learn:**
+- How to write your first C program
+- What variables and expressions are
+- How to use loops to repeat actions
+- How to define constants for clarity
+- How to handle character input/output
+
+💡 Whether you’re brand new to programming or just new to C, this chapter is designed to ease you in step-by-step with short examples and practical explanations.
+
+Let’s get started and print your first “hello, world”!
+`,
     sections: [
         {
             id: "1.1",

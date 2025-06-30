@@ -2,6 +2,20 @@
 
 const chapter6 = {
     title: "Chapter 6: Structures",
+    intro: `📘 **Introduction to Structures**
+
+Structures in C allow you to group different types of variables under a single name. Instead of managing separate variables for coordinates, a person’s details, or a complex data record, you can use a structure to keep everything neatly bundled.
+
+This chapter introduces:
+- How to define and use structures.
+- Passing structures to functions.
+- Creating arrays of structures.
+- Using pointers with structures.
+- Creating self-referential structures (for linked lists).
+- Performing lookups using structures.
+- Using \`typedef\` to simplify your structure syntax.
+
+By mastering structures, you’ll be able to handle more complex data representations in C with elegance and clarity.`,
     sections: [
         {
             id: "6.1",

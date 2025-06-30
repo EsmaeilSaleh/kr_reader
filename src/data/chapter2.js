@@ -2,6 +2,23 @@
 
 const chapter2 = {
     title: "Chapter 2: Types, Operators, and Expressions",
+    intro: `
+    🎯 **What This Chapter Covers**
+
+    Chapter 2 dives into the nuts and bolts of writing expressions in C. You'll learn how variables are named and typed, how arithmetic and logical operations work, and how the language handles conversions, conditions, and precedence.
+
+    🔍 **Why It Matters**
+
+    Mastering this chapter sets the stage for writing powerful, efficient C programs. The concepts here — operators, expressions, type handling — form the foundation for writing and understanding C code clearly and effectively.
+
+    🧠 **Key Concepts**
+    - Legal variable names and good naming habits
+    - Data types, sizes, and how they're stored in memory
+    - Constants and how to define them
+    - The full set of operators in C: arithmetic, logical, bitwise, and more
+    - Precedence and associativity rules for clean, bug-free expressions
+
+    This chapter is all about writing correct, meaningful code and understanding how the computer reads and processes it.`,
     sections: [
         {
             id: "2.1",

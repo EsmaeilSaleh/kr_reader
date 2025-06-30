@@ -2,17 +2,21 @@ const chapter7 = {
     intro: `
 📘 **Chapter 7 — Input and Output**
 
-This chapter explores how C handles input and output through its standard library, giving you the tools to read and write both characters and formatted data.
+In this chapter, we’ll learn how C handles input and output — the way your program talks to the outside world.
 
-🔑 **What You’ll Learn**
-- The difference between standard and low-level I/O
-- How to use functions like \`getchar()\`, \`putchar()\`, \`printf()\`, \`scanf()\`
-- How to manage files using file pointers
-- How to handle errors gracefully with \`stderr\` and \`exit()\`
-- How to deal with flexible arguments using \`<stdarg.h>\`
-- Useful miscellaneous I/O functions for more advanced use
+🖨️ **Output:** Want to show something on the screen? Use \`printf()\` or \`putchar()\`.
+  
+📥 **Input:** Want to get something from the user? Try \`scanf()\` or \`getchar()\`.
 
-⚙️ This chapter is essential for writing practical C programs that interact with users, files, and the operating system.
+📁 **Files:** We’ll also learn how to open files, read/write them, and close them when we’re done.
+
+🚨 **Errors:** If something goes wrong, we’ll use \`stderr\` and \`exit()\` to show errors or stop the program.
+
+🧵 **Advanced:** Need a function that takes any number of arguments? C lets you do that too!
+
+🛠️ Finally, we’ll wrap up with a toolbox of extra functions — from string handling to running system commands.
+
+This chapter gives you all the tools to build real, interactive programs. Let’s dive in!
 `,
     title: 'Chapter 7 — Input and Output',
     sections: [

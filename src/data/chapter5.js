@@ -2,6 +2,21 @@
 
 const chapter5 = {
     title: "Pointers and Arrays",
+    intro: `
+🧠 **Pointers and Arrays** – What’s this chapter about?
+
+This chapter introduces two of the most important low-level concepts in C: **pointers** and **arrays**. Understanding them is crucial for working with memory, functions, and data structures.
+
+You’ll learn:
+
+- What pointers are and how they work.
+- How arrays relate to pointers.
+- How pointer arithmetic lets you move through memory.
+- How functions can use pointers to change values.
+- How C strings are really just pointers to characters.
+
+By the end, you'll be comfortable using pointers to write flexible and efficient C code.
+`,
     sections: [
         {
             id: "5.1",

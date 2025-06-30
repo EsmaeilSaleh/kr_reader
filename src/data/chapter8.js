@@ -1,4 +1,23 @@
 const chapter8 = {
+    intro: `
+📘 **Chapter 8: The UNIX System Interface**
+
+Welcome to the world of UNIX programming! In this chapter, we’ll dive deep into how C programs communicate directly with the operating system. You'll learn what happens behind the scenes when reading from files, writing to output, or allocating memory — all without relying on standard libraries.
+
+Instead of using higher-level functions like \`fopen()\` or \`printf()\`, we’ll use system calls like \`open()\`, \`read()\`, \`write()\`, and even build our own versions of those functions.
+
+### 🔍 What You'll Discover
+
+- What file descriptors are and how UNIX treats everything as a file
+- How to use \`read()\` and \`write()\` for direct I/O
+- Opening, creating, and deleting files with system calls
+- How to use \`lseek()\` to jump around in a file like an array
+- Building your own \`fopen()\` and \`getc()\` from scratch
+- Listing files in a directory without using \`ls\`
+- Writing your own \`malloc()\` and \`free()\` to manage memory manually
+
+This chapter gives you low-level superpowers 💪. By the end, you’ll understand how files and memory work under the hood — and be able to build your own tools that talk directly to the OS!
+`,
     title: "Chapter 8: The UNIX System Interface",
     sections: [
         {
