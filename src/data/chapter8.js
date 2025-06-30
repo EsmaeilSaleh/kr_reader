@@ -3,31 +3,40 @@ const chapter8 = {
     sections: [
         {
             id: "8.1",
-            title: "File Descriptors",
+            title: "8.1 File Descriptors",
             summary: `
-📂 **Low-Level I/O**
+📂 **File Descriptors**
 
-This section introduces UNIX file descriptors and explains the difference between high-level I/O (like \`fopen\`) and low-level I/O (like \`open\`, \`read\`, \`write\`).
+In UNIX, everything is treated as a file—even devices like keyboards and screens. When a program runs, it interacts with these "files" using special numbers called **file descriptors**.
 
-🧠 **Key Concepts:**
-- File descriptors are small integers (0 for stdin, 1 for stdout, 2 for stderr).
-- \`open()\` returns a file descriptor for a given file.
-- \`read()\` and \`write()\` operate on file descriptors directly.
+🔢 **The Standard Descriptors:**
+- \`0\` → **Standard Input** (keyboard)
+- \`1\` → **Standard Output** (screen)
+- \`2\` → **Standard Error** (error messages)
 
-\`\`\`c
-#include <fcntl.h>
-#include <unistd.h>
+These descriptors are opened automatically when your program runs. So even without explicitly opening files, you can read from input or write to output using these.
 
-int main(void)
-{
-    char buf[100];
-    int fd = open("file.txt", O_RDONLY);
-    int n = read(fd, buf, 100);
-    write(1, buf, n); // write to stdout
-    close(fd);
-    return 0;
-}
-\`\`\`
+📘 **Opening Files:**
+Before reading/writing a file, you must open it using a system call like \`open("file.txt", O_RDONLY)\`. This returns a file descriptor—just a small non-negative integer that refers to that open file.
+
+🛠️ **Why File Descriptors?**
+Rather than passing around full file paths or names, UNIX uses these integers. The OS keeps track of which descriptor maps to which file, along with other info like permissions and current offset.
+
+🌀 **Redirection with \`<\` and \`>\`:**
+The shell can reassign these file descriptors:
+- \`< input.txt\` tells the shell to make \`stdin\` come from a file
+- \`> output.txt\` redirects \`stdout\` to a file
+- \`2> errors.log\` sends error messages to a file
+
+The program itself is unaware of these redirections—it just reads from \`0\` and writes to \`1\` or \`2\`.
+
+🧠 **Key Concepts Recap:**
+- File descriptors are how UNIX handles input/output
+- Descriptors 0, 1, and 2 are standard and always open
+- You can open more files and get descriptors like 3, 4, etc.
+- Descriptors can be reassigned using shell redirection
+
+This system makes I/O flexible, powerful, and unified across all types of input and output.
 `,
             code: `#include <fcntl.h>
 #include <unistd.h>
@@ -44,33 +53,15 @@ int main(void)
         },
         {
             id: "8.2",
-            title: "Error Handling",
+            title: "8.2 Low Level I/O - Read and Write",
             summary: `
-🚨 **Handling Errors Manually**
+🔍 **Read and Write**
 
-In UNIX, system calls return -1 on error, and you must check manually. This section covers \`errno\`, \`perror()\`, and error checking patterns.
+Details how to use the \`read()\` and \`write()\` system calls and emphasizes the importance of error handling.
 
 🧠 **Key Concepts:**
-- Always check return values of system calls.
-- \`perror()\` prints a human-readable error.
-- Use \`exit(1)\` on fatal errors.
-
-\`\`\`c
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-
-int main(void)
-{
-    int fd = open("notfound.txt", O_RDONLY);
-    if (fd == -1) {
-        perror("open failed");
-        exit(1);
-    }
-    close(fd);
-    return 0;
-}
-\`\`\`
+- \`read()\` and \`write()\` return bytes or -1 on error
+- Use \`perror()\` and check return values
 `,
             code: `#include <stdio.h>
 #include <fcntl.h>
@@ -89,16 +80,17 @@ int main(void)
         },
         {
             id: "8.3",
-            title: "Random Access",
+            title: "8.3 Open, Creat, Close, Unlink",
             summary: `
-📍 **Using \`lseek()\` for File Positioning**
+🔧 **Working with File Operations**
 
-This section explains how to move around in a file using \`lseek()\`.
+This section explains how to use \`open\`, \`creat\`, \`close\`, and \`unlink\` system calls to manage file creation and deletion.
 
 🧠 **Key Concepts:**
-- \`lseek(fd, offset, whence)\` moves the file position.
-- \`SEEK_SET\`, \`SEEK_CUR\`, \`SEEK_END\` control from where you move.
-- Useful for modifying files without reading the whole thing.
+- \`open()\` creates or opens a file.
+- \`creat()\` is a simplified version of \`open\` for file creation.
+- \`close()\` closes a file descriptor.
+- \`unlink()\` deletes a file from the filesystem.
 
 \`\`\`c
 #include <fcntl.h>
@@ -106,10 +98,10 @@ This section explains how to move around in a file using \`lseek()\`.
 
 int main(void)
 {
-    int fd = open("file.txt", O_RDWR);
-    lseek(fd, 10, SEEK_SET);
-    write(fd, "X", 1);
+    int fd = creat("example.txt", 0644);
+    write(fd, "hello\n", 6);
     close(fd);
+    unlink("example.txt");
     return 0;
 }
 \`\`\`
@@ -128,16 +120,15 @@ int main(void)
         },
         {
             id: "8.4",
-            title: "Example: An Implementation of fopen and getc",
+            title: "8.4 Random Access - Lseek",
             summary: `
-🧪 **Recreating Standard Functions**
+🎯 **Random Access with Lseek**
 
-This section provides a low-level implementation of \`fopen\`, \`getc\`, and related I/O buffering mechanics, showing how standard I/O can be built using system calls.
+Explains how to reposition the file offset using \`lseek()\` for random file access.
 
 🧠 **Key Concepts:**
-- Structure for file buffering (\`_iobuf\`)
-- File open modes and bit flags
-- Using \`read()\` internally for character access
+- \`lseek(fd, offset, SEEK_SET/SEEK_CUR/SEEK_END)\`
+- Useful for modifying file content at arbitrary positions
 `,
             code: `#define NULL 0
 #define EOF (-1)
@@ -170,16 +161,15 @@ enum _flags {
         },
         {
             id: "8.5",
-            title: "Example: A Simple Implementation of printf",
+            title: "8.5 Example - An implementation of Fopen and Getc",
             summary: `
-🖨️ **Minimal printf Implementation**
+🧪 **An Implementation of fopen and getc**
 
-Demonstrates a simplified version of \`printf\` that can format strings and numbers using variadic arguments and write them to standard output.
+Demonstrates how standard I/O operations like \`fopen\` and \`getc\` are built on top of low-level system calls.
 
 🧠 **Key Concepts:**
-- Variadic functions using \`stdarg.h\`
-- Converting numbers to strings
-- Writing formatted strings to file descriptors
+- File buffering
+- Custom implementation of standard I/O library
 `,
             code: `#include <stdarg.h>
 #include <unistd.h>
@@ -212,16 +202,15 @@ void minprintf(char *fmt, ...)
         },
         {
             id: "8.6",
-            title: "Low-Level File Copy",
+            title: "8.6 Example - Listing Directories",
             summary: `
-📋 **Rewriting cp with read/write**
+📋 **Listing Directories**
 
-This section shows how to implement a basic file copy utility using low-level system calls instead of relying on shell utilities.
+Uses low-level I/O to read and write file content and simulate directory listing.
 
 🧠 **Key Concepts:**
-- Using \`open()\`, \`read()\`, and \`write()\` to manually copy files
-- Buffer handling and looped reads
-- File permission flags in \`open()\`
+- File copy using \`read()\` and \`write()\`
+- Managing file descriptors and buffer loops
 `,
             code: `#include <fcntl.h>
 #include <unistd.h>
@@ -244,16 +233,15 @@ int main(void)
         },
         {
             id: "8.7",
-            title: "File Permissions and umask",
+            title: "8.7 Example - A Storage Allocator",
             summary: `
-🔒 **Controlling File Access**
+🔒 **A Storage Allocator**
 
-Introduces how file permissions work in UNIX and how to use \`umask()\` to control default permissions of new files.
+Introduces UNIX file permission concepts and how \`umask()\` modifies default permissions.
 
 🧠 **Key Concepts:**
-- Permission bits: read, write, execute for user/group/others
-- Octal representation: \`0644\`, \`0755\`, etc.
-- \`umask()\` and its effect on file creation
+- File creation masks
+- Permissions (rwx) in octal
 `,
             code: `#include <sys/stat.h>
 #include <fcntl.h>
