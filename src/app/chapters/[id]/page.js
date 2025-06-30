@@ -13,6 +13,7 @@ import SubchapterLayout from '@/components/SubchapterLayout';
 import { useSwipeable } from 'react-swipeable';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const chapters = {
     chapter1,
@@ -82,6 +83,9 @@ export default function ChapterPage() {
         return (
             <div className="p-6 max-w-2xl mx-auto">
                 <h1 className="text-3xl font-bold mb-4">{chapter.title}</h1>
+                <div className="prose prose-sm dark:prose-invert mb-6">
+                    <ReactMarkdown>{chapter.intro}</ReactMarkdown>
+                </div>
                 <ul className="space-y-2">
                     {chapter.sections.map((s) => (
                         <li key={s.id}>
@@ -89,7 +93,7 @@ export default function ChapterPage() {
                                 href={`/chapters/${s.id}`}
                                 className="text-blue-600 hover:underline"
                             >
-                                {s.id} — {s.title}
+                                <h2 className="text-lg font-semibold">{s.id} — {s.title}</h2>
                             </Link>
                         </li>
                     ))}

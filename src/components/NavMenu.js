@@ -42,7 +42,7 @@ export default function NavMenu() {
                             Chapter 2
                         </li>
                     </Link>
-                    <Link href="/chapter/3">
+                    <Link href="/chapters/3">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '3' ? 'text-blue-400' : ''}`}>
                             Chapter 3
                         </li>
