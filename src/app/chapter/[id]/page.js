@@ -17,11 +17,6 @@ export default function ChapterPage() {
     const chapterKey = `chapter${id.split('.')[0]}`;
     const chapter = chapters[chapterKey];
 
-    if (!chapter) return <div>Chapter not found.</div>;
-
-    const section = chapter?.sections?.find((s) => s.id === id);
-    if (!section) return <div>Section not found.</div>;
-
     const router = useRouter();
     const allSections = chapter?.sections || [];
     const currentIndex = allSections.findIndex((s) => s.id === id);
@@ -39,6 +34,10 @@ export default function ChapterPage() {
         preventDefaultTouchmoveEvent: true,
         trackTouch: true
     });
+
+    if (!chapter) return <div>Chapter not found.</div>;
+    const section = chapter?.sections?.find((s) => s.id === id);
+    if (!section) return <div>Section not found.</div>;
 
     return (
         <div {...handlers}>
