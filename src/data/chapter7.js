@@ -261,6 +261,84 @@ int main() {
     fclose(fp);
     return 0;
 }`
+        },
+        {
+            id: '7.8',
+            title: 'Miscellaneous Functions',
+            summary: `
+🧰 **7.8 Miscellaneous Functions**
+
+This section highlights a variety of useful standard library functions in C that don't fit neatly into previous categories.
+
+🔤 **7.8.1 String Operations**
+Functions like \`strlen\`, \`strcpy\`, \`strcat\`, and \`strcmp\` help manipulate strings efficiently.
+- \`strlen\` gets the length of a string.
+- \`strcpy\` copies one string to another.
+- \`strcat\` appends one string to the end of another.
+- \`strcmp\` compares two strings and tells if they are equal or which is greater.
+
+🔍 **7.8.2 Character Class Testing and Conversion**
+Header \`<ctype.h>\` provides functions like:
+- \`isdigit(c)\` checks if \`c\` is a digit (0-9).
+- \`isalpha(c)\` checks if \`c\` is a letter (A-Z or a-z).
+- \`toupper(c)\` converts a lowercase letter to uppercase.
+- \`tolower(c)\` converts an uppercase letter to lowercase.
+
+🔁 **7.8.3 ungetc**
+The \`ungetc(c, fp)\` function puts a character back into the input stream \`fp\`. This is useful when you read one character too many and want to "undo" that read, for example when parsing input.
+
+⚙️ **7.8.4 Command Execution**
+The \`system()\` function lets you run shell commands from your C program just like typing them in the terminal. For example, \`system("ls")\` lists files in the current directory.
+
+💾 **7.8.5 Storage Management**
+Functions like \`malloc\`, \`calloc\`, and \`free\` manage dynamic memory:
+- \`malloc\` allocates a block of memory of a given size.
+- \`calloc\` allocates memory and initializes it to zero.
+- \`free\` releases previously allocated memory.
+These are important for creating data structures whose size can change at runtime.
+
+➕ **7.8.6 Mathematical Functions**
+The \`<math.h>\` library includes functions like:
+- \`sqrt(x)\` computes the square root of \`x\`.
+- \`pow(x, y)\` raises \`x\` to the power \`y\`.
+- \`sin(x)\`, \`cos(x)\`, \`log(x)\` perform trigonometric and logarithmic calculations.
+These help perform common math operations easily.
+
+🎲 **7.8.7 Random Number Generation**
+The \`rand()\` function generates pseudo-random numbers. To get different sequences each time you run your program, you use \`srand()\` to seed the generator, typically with the current time. Without seeding, \`rand()\` produces the same sequence every run.
+
+💡 These functions enhance program flexibility and capability across tasks like input processing, memory management, and system interaction.
+`,
+            code: `#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+
+int main() {
+    // String operation
+    char msg[100] = "Hello ";
+    strcat(msg, "world!");
+    printf("%s\\n", msg);
+
+    // Character class test
+    char ch = 'A';
+    if (isalpha(ch)) printf("%c is a letter\\n", ch);
+    printf("Lowercase: %c\\n", tolower(ch));
+
+    // Run shell command
+    system("echo Listing current dir:");
+    system("ls");
+
+    // Random number
+    srand(42);  // Seed
+    printf("Random: %d\\n", rand());
+
+    // Math
+    printf("sqrt(16) = %.2f\\n", sqrt(16));
+
+    return 0;
+}`
         }
     ],
 };
