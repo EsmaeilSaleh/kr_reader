@@ -6,6 +6,7 @@ import chapter2 from '@/data/chapter2';
 import chapter3 from '@/data/chapter3';
 import chapter4 from '@/data/chapter4';
 import chapter5 from '@/data/chapter5';
+import chapter6 from '@/data/chapter6';
 import chapter7 from '@/data/chapter7';
 import chapter8 from '@/data/chapter8';
 import SubchapterLayout from '@/components/SubchapterLayout';
@@ -18,6 +19,7 @@ const chapters = {
     chapter3,
     chapter4,
     chapter5,
+    chapter6,
     chapter7,
     chapter8
 }

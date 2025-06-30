@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
                 src="/icon.png"
                 alt="K&R Reader logo"
                 width={34}
-                height={34}
+                height={24}
                 className="bg-gray-700 rounded"
               />
               <span className="text-lg font-semibold text-gray-800">K&R Reader</span>
