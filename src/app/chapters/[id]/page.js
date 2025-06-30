@@ -55,16 +55,16 @@ export default function ChapterPage() {
     const goToSection = (index) => {
         if (index >= 0 && index < allSections.length) {
             const nextId = allSections[index].id;
-            router.push(`/chapter/${nextId}`);
+            router.push(`/chapters/${nextId}`);
         } else if (index < 0) {
             const prevChapterNum = parseInt(chapterKey.replace('chapter', '')) - 1;
             if (chapters[`chapter${prevChapterNum}`]) {
-                router.push(`/chapter/${prevChapterNum}`);
+                router.push(`/chapters/${prevChapterNum}`);
             }
         } else if (index >= allSections.length) {
             const nextChapterNum = parseInt(chapterKey.replace('chapter', '')) + 1;
             if (chapters[`chapter${nextChapterNum}`]) {
-                router.push(`/chapter/${nextChapterNum}`);
+                router.push(`/chapters/${nextChapterNum}`);
             }
         }
     };
@@ -86,7 +86,7 @@ export default function ChapterPage() {
                     {chapter.sections.map((s) => (
                         <li key={s.id}>
                             <Link
-                                href={`/chapter/${s.id}`}
+                                href={`/chapters/${s.id}`}
                                 className="text-blue-600 hover:underline"
                             >
                                 {s.id} — {s.title}

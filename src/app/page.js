@@ -11,7 +11,7 @@ export default function Home() {
         Dive into the timeless classic with a modern twist. Read, type, and explore each section of K&amp;R with interactive clarity.
       </p>
       <Link
-        href="/chapter/1.1"
+        href="/chapters/1.1"
         className="mt-6 px-6 py-3 rounded bg-blue-600 hover:bg-blue-500 transition text-white font-semibold"
       >
         Start with Chapter 1 →

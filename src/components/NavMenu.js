@@ -32,12 +32,12 @@ export default function NavMenu() {
                     className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-40 bg-white border shadow-md rounded flex flex-col z-50 transition-all duration-150"
                     onClick={(e) => e.target.closest('details')?.removeAttribute('open')}
                 >
-                    <Link href="/chapter/1">
+                    <Link href="/chapters/1">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '1' ? 'text-blue-400' : ''}`}>
                             Chapter 1
                         </li>
                     </Link>
-                    <Link href="/chapter/2">
+                    <Link href="/chapters/2">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '2' ? 'text-blue-400' : ''}`}>
                             Chapter 2
                         </li>
@@ -47,27 +47,27 @@ export default function NavMenu() {
                             Chapter 3
                         </li>
                     </Link>
-                    <Link href="/chapter/4">
+                    <Link href="/chapters/4">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '4' ? 'text-blue-400' : ''}`}>
                             Chapter 4
                         </li>
                     </Link>
-                    <Link href="/chapter/5">
+                    <Link href="/chapters/5">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '5' ? 'text-blue-400' : ''}`}>
                             Chapter 5
                         </li>
                     </Link>
-                    <Link href="/chapter/6">
+                    <Link href="/chapters/6">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '6' ? 'text-blue-400' : ''}`}>
                             Chapter 6
                         </li>
                     </Link>
-                    <Link href="/chapter/7">
+                    <Link href="/chapters/7">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '7' ? 'text-blue-400' : ''}`}>
                             Chapter 7
                         </li>
                     </Link>
-                    <Link href="/chapter/8">
+                    <Link href="/chapters/8">
                         <li className={`px-1 py-2 text-lg text-center ${chapterNumber === '8' ? 'text-blue-400' : ''}`}>
                             Chapter 8
                         </li>

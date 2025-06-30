@@ -23,7 +23,7 @@ export default function ChapterIndex() {
                         {chapter.sections.map((section) => (
                             <li key={section.id}>
                                 <Link
-                                    href={`/chapter/${section.id}`}
+                                    href={`/chapters/${section.id}`}
                                     className="text-blue-600 hover:underline"
                                 >
                                     {section.id} — {section.title}
