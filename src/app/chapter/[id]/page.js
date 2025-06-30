@@ -1,5 +1,5 @@
 'use client';
-
+import Link from "next/link";
 import { useParams } from 'next/navigation';
 import chapter1 from '@/data/chapter1';
 import chapter8 from '@/data/chapter8';
@@ -44,12 +44,12 @@ export default function ChapterPage() {
                 <ul className="space-y-2">
                     {chapter.sections.map((s) => (
                         <li key={s.id}>
-                            <a
+                            <Link
                                 href={`/chapter/${s.id}`}
                                 className="text-blue-600 hover:underline"
                             >
                                 {s.id} — {s.title}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>

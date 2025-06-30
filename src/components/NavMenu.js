@@ -2,8 +2,10 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function NavMenu() {
+    const pathname = usePathname();
     return (
         <li className="relative">
             <details className="group">
@@ -13,42 +15,66 @@ export default function NavMenu() {
                     onClick={(e) => e.target.closest('details')?.removeAttribute('open')}
                 >
                     <li>
-                        <Link href="/chapter/1" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/1"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/1' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 1
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/2" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/2"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/2' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 2
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/3" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/3"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/3' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 3
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/4" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/4"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/4' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 4
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/5" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/5"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/5' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 5
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/6" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/6"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/6' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 6
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/7" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/7"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/7' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 7
                         </Link>
                     </li>
                     <li>
-                        <Link href="/chapter/8" className="px-6 py-3 text-lg hover:bg-gray-100 text-center">
+                        <Link
+                            href="/chapter/8"
+                            className={`px-6 py-6 text-lg text-center ${pathname === '/chapter/8' ? 'text-blue-400' : ''}`}
+                        >
                             Chapter 8
                         </Link>
                     </li>

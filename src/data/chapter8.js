@@ -3,7 +3,7 @@ const chapter8 = {
     sections: [
         {
             id: "8.1",
-            title: "8.1 File Descriptors",
+            title: "File Descriptors",
             summary: `
 📂 **File Descriptors**
 
@@ -53,7 +53,7 @@ int main(void)
         },
         {
             id: "8.2",
-            title: "8.2 Low Level I/O - Read and Write",
+            title: "Low Level I/O - Read and Write",
             summary: `
 📥 **Low-Level I/O: Read and Write**
 
@@ -114,7 +114,7 @@ int main(void)
         },
         {
             id: "8.3",
-            title: "8.3 Open, Creat, Close, Unlink",
+            title: "Open, Creat, Close, Unlink",
             summary: `
 🔧 **Working with File Operations**
 
@@ -154,7 +154,7 @@ int main(void)
         },
         {
             id: "8.4",
-            title: "8.4 Random Access - Lseek",
+            title: "Random Access - Lseek",
             summary: `
 🎯 **Random Access with Lseek**
 
@@ -195,7 +195,7 @@ enum _flags {
         },
         {
             id: "8.5",
-            title: "8.5 Example - An implementation of Fopen and Getc",
+            title: "Example - An implementation of Fopen and Getc",
             summary: `
 🧪 **An Implementation of fopen and getc**
 
@@ -236,7 +236,7 @@ void minprintf(char *fmt, ...)
         },
         {
             id: "8.6",
-            title: "8.6 Example - Listing Directories",
+            title: "Example - Listing Directories",
             summary: `
 📋 **Listing Directories**
 
@@ -267,7 +267,7 @@ int main(void)
         },
         {
             id: "8.7",
-            title: "8.7 Example - A Storage Allocator",
+            title: "Example - A Storage Allocator",
             summary: `
 🔒 **A Storage Allocator**
 
